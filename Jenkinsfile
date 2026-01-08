@@ -7,9 +7,9 @@ pipeline {
             steps{
                
                 //Fisrt, drop the directory if exists
-                sh 'rm -rf /home/jenkins/tomcat-web'
+                sh 'rm -rf /Users/orlando/jenkins/tomcat-web'
                 //Create the directory
-                sh 'mkdir /home/jenkins/tomcat-web'
+                sh 'mkdir /Users/orlando/jenkins/tomcat-web'
                 
             }
         }
@@ -22,7 +22,7 @@ pipeline {
         stage('Create the Tomcat container') {
             steps {
             echo 'Creating the container...'
-            sh 'docker run -dit --name tomcat1 -p 9090:8080  -v /home/jenkins/tomcat-web:/usr/local/tomcat/webapps tomcat:9.0'
+            sh 'docker run -dit --name tomcat1 -p 9090:8080  -v /Users/orlando/jenkins/tomcat-web:/usr/local/tomcat/webapps tomcat:9.0'
             }
         }
         stage('Copy the web application to the container directory') {
