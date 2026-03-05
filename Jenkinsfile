@@ -22,7 +22,7 @@ pipeline {
         stage('Create the Tomcat container') {
             steps {
             echo 'Creating the container...'
-            sh 'docker run -dit --name tomcat1 -p 9090:8080  -v /Users/orlando/jenkins/tomcat-web:/usr/local/tomcat/webapps tomcat:19.0'
+            sh 'docker run -dit --name tomcat1 -p 9090:8080  -v /Users/orlando/jenkins/tomcat-web:/usr/local/tomcat/webapps tomcat:9.0'
             }
         }
         stage('Copy the web application to the container directory') {
@@ -36,9 +36,6 @@ pipeline {
     }
 
     post {
-        always{
-            echo 'These steps are always executed'
-        }
         success {
         // One or more steps need to be included within each condition's block.
         echo 'the deployment has worked'
